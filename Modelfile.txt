@@ -1,0 +1,27 @@
+# 1. 指向下载好的 GGUF 文件名
+FROM ./qwen2_5_3b_nl4opt_merged.Q4_K_M.gguf
+
+# 2. 显式配置 Qwen2.5 官方对话模板（防止模板解析失效导致输出 @@@@ 乱码）
+TEMPLATE """{{- if .Messages }}
+{{- range .Messages }}
+{{- if eq .Role "system" }}
+<|im_start|>system
+{{ .Content }}<|im_end|>
+{{ else if eq .Role "user" }}
+<|im_start|>user
+{{ .Content }}<|im_end|>
+{{ else if eq .Role "assistant" }}
+<|im_start|>assistant
+{{ .Content }}<|im_end|>
+{{ end }}
+{{- end }}
+<|im_start|>assistant
+{{- else }}
+{{ .Prompt }}
+{{- end }}"""
+
+# 3. 设置 Stop Token 与低随机性
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|im_start|>"
+PARAMETER temperature 0.1
+PARAMETER top_p 0.95
