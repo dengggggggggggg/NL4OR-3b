@@ -4,7 +4,7 @@
 
 ## 文件说明
 
-- `Modelfile`：打包好的 GGUF 模型文件（已包含架构配置与 Tokenizer）。
+- `Modelfile`：用于 Ollama 的模型配置文件，指导 Ollama 如何加载、打包和运行指定的模型文件（如 .gguf），并定义模型的默认行为、 Prompt 模板和超参数。
 
 ## 快速上手 / Quickstart
 
