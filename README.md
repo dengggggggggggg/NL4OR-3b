@@ -4,13 +4,13 @@
 
 ## 文件说明
 
-- `NL4OR-3b.gguf`：打包好的 GGUF 模型文件（已包含架构配置与 Tokenizer）。
+- `Modelfile`：打包好的 GGUF 模型文件（已包含架构配置与 Tokenizer）。
 
 ## 快速上手 / Quickstart
 
 ### 使用 Ollama 运行
 
-1. 下载本仓库中的 GGUF 文件。
+1. 在[https://huggingface.co/DinGrogu/qwen2.5-3b-nl4opt] 下载`NL4OR-3b` 模型文件。
 2. 下载名为 `Modelfile` 的文件。
 3. 终端运行
 
